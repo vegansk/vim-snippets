@@ -63,6 +63,23 @@ void set${2/\w+\s*/\u$0/}($1 $2) {
 }
 endsnippet
 
+snippet propi "create simple property implementation"
+${1:int} ${2:ClassName}::${3:data}() const {
+	return _$3;
+}
+
+void $2::set${3/\w+\s*/\u$0/}($1 $3) {
+	_$3 = $3;
+}
+endsnippet
+
+snippet propd "create simple property definitions"
+${1:int} _${2:data};
+
+$1 $2() const;
+void set${2/\w+\s*/\u$0/}($1 $2);
+endsnippet
+
 snippet pref "create property with references in getter/setter"
 ${1:int} _${2:data};
 
@@ -73,6 +90,23 @@ const $1& $2() const {
 void set${2/\w+\s*/\u$0/}(const $1& $2) {
 	_$2 = $2;
 }
+endsnippet
+
+snippet prefi "create property with references in getter/setter"
+const ${1:int}& ${2:ClassName}::${3:data}() const {
+	return _$3;
+}
+
+void $2::set${3/\w+\s*/\u$0/}(const $1& $3) {
+	_$3 = $3;
+}
+endsnippet
+
+snippet prefd "create property with references in getter/setter"
+${1:int} _${2:data};
+
+const $1& $2() const;
+void set${2/\w+\s*/\u$0/}(const $1& $2);
 endsnippet
 
 # vim:ft=snippets:
